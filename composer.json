@@ -1,0 +1,17 @@
+{
+    "name": "ski/ski",
+    "description": "PHP Template Engine based on Alpine.js",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "gregfn"
+        }
+    ],
+    "require": {}
+}
