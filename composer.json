@@ -13,5 +13,11 @@
             "name": "gregfn"
         }
     ],
-    "require": {}
+    "require": {},
+
+    "scripts": {
+        "post-install-cmd": [
+            "php -r \"copy('vendor/ski/src/ski-cli', 'ski-cli');\""
+        ]
+    }
 }

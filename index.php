@@ -4,9 +4,17 @@ require 'vendor/autoload.php';
 
 use \Core\Ski;
 
-//Ski::SetSkiPath(__DIR__.'/ski');
+$ski = new Ski(__DIR__.'/ski');
 
-$ski = new Ski();
-//$ski->vue('template');
-//$ski->render();
+$datas = [
+  'data'=>[
+    'data'=> 'hello'
+  ]
+];
+
+$ski->datas($datas);
+$ski->template('template');
+$ski->layout('layout');
+
+$ski->render();
  ?>
