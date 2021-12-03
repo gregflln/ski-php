@@ -21,9 +21,9 @@ class Ski extends Engine
 
     public function template($template)
     {
-        if (file_exists($this->skiroot . "/vues/" . $template . ".php")) {
+        if (file_exists($this->skiroot . "/templates/" . $template . ".php")) {
             $template = file_get_contents(
-                $this->skiroot . "/vues/" . $template . ".php"
+                $this->skiroot . "/templates/" . $template . ".php"
             );
         }
         if (empty($template)) {
@@ -31,7 +31,7 @@ class Ski extends Engine
             echo $this->msg->alert(
                 "Ski not found this template file in " .
                     $this->skiroot .
-                    "/vues/" .
+                    "/templates/" .
                     $template .
                     ".php"
             );

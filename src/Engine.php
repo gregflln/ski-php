@@ -41,7 +41,7 @@ namespace Core;
            return false;
 
        }
-       elseif (!file_exists($this->skiroot . '/head.php') || !file_exists($this->skiroot . '/vues') || !file_exists($this->skiroot . '/components'))
+       elseif (!file_exists($this->skiroot . '/head.php') || !file_exists($this->skiroot . '/templates') || !file_exists($this->skiroot . '/components'))
        {
            return false;
        }
