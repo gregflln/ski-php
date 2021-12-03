@@ -13,7 +13,9 @@
             "name": "gregfn"
         }
     ],
-    "require": {},
+    "require": {
+      "symfony/console": "^6.0"
+    },
 
     "scripts": {
         "post-install-cmd": [

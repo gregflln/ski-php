@@ -1,7 +1,8 @@
 <?php
-if (php_sapi_name() !== 'cli'){
-  exit;
-}
+require 'vendor/autoload.php';
+use \Core\Command\GenerateCommand;
+
+use Symfony\Component\Console\Application;
 echo '
 ______   ___   ___   ________            ______   __        ________
 /_____/\ /___/\/__/\ /_______/\          /_____/\ /_/\      /_______/\
@@ -12,13 +13,12 @@ ______   ___   ___   ________            ______   __        ________
    \_____\/ \__\/\__\/\________\/           \_____\/ \_____\/\________\/
 
 
-Welcome in Ski-cli v. 0-alpha !
-
-      use create
+Welcome in Ski-cli v. 0-alpha ! To generate files that Ski need, use "generate"
 
 ';
 
+$application = new Application();
 
-if($argv[1] == 'create'){
-  $line = fgets(STDIN);
-}
+$application->add(new GenerateCommand());
+
+$application->run();
