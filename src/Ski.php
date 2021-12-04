@@ -55,6 +55,7 @@ class Ski extends Engine
         if ($this->startupVerifs()) {
             try {
                 $this->init();
+                echo $this->msg->display();
                 return $this->rendering();
             } catch (\Exception $e) {
                 //echo $this->msg->title();
@@ -67,6 +68,7 @@ class Ski extends Engine
             echo $this->msg->alert(
                 "[startup verification failed] Oh no :( Ski has encountered an issue at startup, check if you have specified the Ski root folder."
             );
+            echo $this->msg->display();
         }
     }
 }

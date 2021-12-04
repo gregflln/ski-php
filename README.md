@@ -100,13 +100,14 @@ Previous methods can be called in any order.
 ```
 Directories structure:
 ----------------------
-SkiRootPath
-	|___ components
-	|___ layouts
-	|___ templates
+<yourSkiPath>/
+	|___ components/
+	|___ layouts/
+	|___ templates/
 	|___ head.php
+	|___ config.yarn
 ```
-### ♻️ Components/
+### ♻️ Components
 To create new component, create new file in `components` directory :
 ```html
 <!--/components/commentComponent.php-->
@@ -129,7 +130,7 @@ Let's create another component `articleComponent`
 </article>
 ```
 You probably already understood it, the `<@commentComponent>` represents our component.
-### 📑 Templates/
+### 📑 Templates
 To build templates, you just have to assemble your components.
 ```html
 <!--/templates/blogPage.php-->
@@ -140,7 +141,7 @@ To build templates, you just have to assemble your components.
 </main>
 ```
 The components names can only contains letters, and the word `template` is reserved and can't be used.
-### 🖼️ Layouts/
+### 🖼️ Layouts
 Layouts is work in similar way, the content of template will be included in `<@template>`
 ```html
 <!--/layouts/appLayout.php-->
@@ -167,7 +168,7 @@ Soon !
 ```
 Not implemented yet
 ```
-### 🔬 Futur of Ski
+### 🔬 Future of Ski
 
 Ski-Engine is an Open Source project, every contribution are welcomes.
 Some points needs attention :
@@ -176,10 +177,10 @@ Some points needs attention :
 - Better integration with Alpine JS
 - Better management of head tag
 
-#### ⚖️ Legal shit
+#### ⚖️ Legal
 At this early point of developpement, use Ski-Engine in production is clearly not recommanded.
-<sub><sup>
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</sup></sub>
+
+<sub><sup>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</sup></sub>
 
 This project is not affiliate with Alpine JS
 <sup>(Thanks to Caleb Porzio for this really cool works on AlpineJS)</sup>

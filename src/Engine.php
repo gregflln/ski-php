@@ -32,17 +32,23 @@ namespace Core;
        if (!empty($this->layout)){
          $this->addTemplateToLayout();
        }
+
    }
    protected function startupVerifs()
    {
        if (empty($this->skiroot))
        {
-           $this->msg->alert('Ski root folder missing 🥶 use Ski::SetSkiPath(__DIR__.\'path/to/conf/folder\') before first instance of Ski to specify the root folder for Ski, please use a free folder');
+           $this->msg->alert('Ski root folder missing 🥶 Specify path in Ski constructeur');
            return false;
 
-       }
-       elseif (!file_exists($this->skiroot . '/head.php') || !file_exists($this->skiroot . '/templates') || !file_exists($this->skiroot . '/components'))
+       }elseif(!file_exists($this->skiroot . '/head.php'))
        {
+         $this->msg->alert('Ski can\'t start 🥶 Missing "head.php" file');
+         return false;
+       }
+       elseif (!file_exists($this->skiroot . '/templates'))
+       {
+           $this->msg->alert('Ski can\'t start 🥶 Missing templates folder');
            return false;
        }
        else
@@ -93,14 +99,14 @@ namespace Core;
    }
    protected function processTemplate($template)
    {
-      for ($i = 0; $i < 1000; $i++) {
+      for ($i = 0; $i < 100; $i++) {
           $templateprocessed = $this->processOnce($template);
 
           if ($templateprocessed === false) {
               break;
-          } elseif ($i == 999) {
+          } elseif ($i == 99) {
               echo $this->msg->alert(
-                  'it\'s over 9000 (exactly 999 iterations of processing) ! Maybe you have cross-referencing or self-referencing components 🧩'
+                  'it\'s over 9000 ! Maybe you have cross-referencing or self-referencing components 🧩'
               );
           } else {
               $template = $templateprocessed;
