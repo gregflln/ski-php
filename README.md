@@ -21,47 +21,47 @@ You can't choose a directory that already exist.
 ```console
 php ski-cli ski:create <dirname>
 ```
-$$That's all folks$$
-<center><b>Ski Engine is now ready to use !</b></center>
+If everything went fine, Ski Engine directory must look like this
+```
+Directories structure:
+----------------------
+<mySkiPath>/
+	|___ components/
+	|___ templates/
+	|___ head.php
+	|___ config.yarn
+```
+That's all folks.
+<b>Ski Engine is now ready to use !</b>
 
-## 🔨 Basic Usage
+## 🔨 Usage
+
+This file can be your `index.php` or your router for example.
+This is how to render a view
 
 ```php
 require 'vendor/autoload.php';
 
 Use Core\Ski;
-
 $ski = new Ski(__DIR__.'/path/to/ski/folder');
 
-$datas = fetchFromBackend(...); // from ☁️
-
+$datas = [..]; // retrieve datas from whatever
 
 $ski->template('articleTemplate'); //add template that you need
-
-$ski->layout('appLayout');//extend template with predifined layout
-
 $ski->data($datas); //add datas to Alpine to front
 
 $ski->render(); //And just ⚡️ !
 ```
 ## ⚙️Core methods
-###  📑 Set template `->template()`
+###  📑  `->template()` Choose template
 
-Define what template will be rendered.
+Define which template will be rendered.
 ```php
 //example :
 $ski->template('articleTemplate');
 // set template in /templates/articleTemplate.php
 ```
-### 🖼️ Extend it with a layout  `->layout()` <sup>`OPTIONAL`<sup>
-Template can be extended by a layout. If you define a layout, the template will be render inside the layout.
-For example, the layout is often the static elements in your app, like the navbar, top menus or footer.
-```php
-//example :
-$ski->layout('appLayout');
-//extends template with layout in /layouts/appLayout.php
-```
-### ☁️ Add some datas  `->data() ` <sup>`OPTIONAL`<sup>
+### ☁️   `->data() ` Add some datas <sub><sup>`OPTIONAL`<sup></sub>
 Pass datas from your backend, DB, Models or whatever to the view.
 ```php
 //example :
@@ -87,7 +87,7 @@ Datas are passed to AlpineJS in `x-data` tag in `<body>` as Javascript Object `d
 </div>
 ```
 
-### ⚡️ Just render it `->render()`
+### ⚡️  `->render()` Build view and send it
 ```php
 //example :
 $ski->render();
@@ -96,64 +96,54 @@ The `->render()` method will send the view to the browser, this methods must be 
 
 Previous methods can be called in any order.
 
-## Templating
-```
-Directories structure:
-----------------------
-<yourSkiPath>/
-	|___ components/
-	|___ layouts/
-	|___ templates/
-	|___ head.php
-	|___ config.yarn
-```
-### ♻️ Components
-To create new component, create new file in `components` directory :
+## ♻️ Create better UI simpler with components
+> With Ski Engine, you create templates by using components.
+>  Components are little piece of code that you can manipulate in differents way.
+> Components system are processed by PHP and components behavior are defined with AlpineJS directives.
+
+### ♻️ How Ski Components Works ?
+To create new component, create new file in `components/` directory.
+The filename will be used as component tag name
+
+Let's create a simple `comment` component :
 ```html
-<!--/components/commentComponent.php-->
-<template>
-	<div class="comment">
-		<h3 x-text="comment.userName"></h3>
-		<p x-text="comment.content"></p>
-	</div>
-</template>
+<!--/components/comment.php-->
+
+<div class="comment-card">
+	<h3 x-text="post.userName"></h3>
+	<p x-text="post.content"></p>
+</div>
 ```
-Let's create another component `articleComponent`
+Let's create another component `article` :
 ```html
-<!--/components/articleComponent.php-->
+<!--/components/article.php-->
+
 <article class="article">
 	<h2 x-text="datas.article.title"></h2>
 	<p x-text="datas.article.content"></p>
-	<div class="comments" x-for="comment in datas.comments">
-		<@commentComponent>
+	<div class="comments_Section">
+		<h3>Comments:</h3>
+			<x-slot></x-slot>
 	</div>
 </article>
 ```
-You probably already understood it, the `<@commentComponent>` represents our component.
-### 📑 Templates
+### 📑 How to build template ?
+
 To build templates, you just have to assemble your components.
+For call components, use the following syntax `<x-componentName>` represents our component.
 ```html
 <!--/templates/blogPage.php-->
-<main>
-	<@breadcrumb>
-	<@articleComponent>
-	<@lastestNews>
-</main>
+<x-article>
+	<template x-for="post in datas.posts">
+		<x-comment/>
+	<template>
+</x-article>
 ```
 The components names can only contains letters, and the word `template` is reserved and can't be used.
-### 🖼️ Layouts
-Layouts is work in similar way, the content of template will be included in `<@template>`
-```html
-<!--/layouts/appLayout.php-->
-<nav>
-	...
-</nav>
-<div class="container">
-	<@template>
-</div>
-<footer>
-</footer>
-```
+Tags are case insensitive : `<x-App>` `<x-APP>` `<x-app>` make reference to same "app.php" components file.
+
+`<template>` should be called in templates and not in components itself, is just a tip.
+
 ### 🔗 Head.php
 This file populate `<head></head>` in every rendered HTML document by Ski.
 Here add your stylesheets or your favorite CSS frameworks CDN.
@@ -168,13 +158,13 @@ Soon !
 ```
 Not implemented yet
 ```
-### 🔬 Future of Ski
+## 🔬 Future of Ski
 
 Ski-Engine is an Open Source project, every contribution are welcomes.
 Some points needs attention :
-- XSS protection
-- Configuration File
-- Better integration with Alpine JS
+- Improve XSS protection
+- Add global variables system
+- Add Configuration File
 - Better management of head tag
 
 #### ⚖️ Legal

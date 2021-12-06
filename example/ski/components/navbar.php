@@ -58,13 +58,3 @@
     </div>
   </div>
 </nav>
-<div class="container is-widescreen">
-  <@comments>
-  <@comments>
-  <@comments>
-  <@comments>
-  <@comments>
-  <@comments>
-  <@comments>
-    <@template>
-</div>

@@ -38,6 +38,7 @@ class Ski extends Engine
         }
         $this->template = $this->processTemplate($template);
     }
+    /*
     public function layout($layout)
     {
       if (!file_exists($this->skiroot.'/layouts/'.$layout.'.php')){
@@ -50,6 +51,7 @@ class Ski extends Engine
         $this->layout = $layout;
       }
     }
+    */
     public function render()
     {
         if ($this->startupVerifs()) {
