@@ -1,1 +1,0 @@
-<x-slot></x-slot>

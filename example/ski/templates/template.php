@@ -6,6 +6,5 @@
   </div>
   <template x-for="post in posts">
     <x-comment x-data="test">
-    </x-comment>
   </template>
 </x-app>

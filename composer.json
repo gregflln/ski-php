@@ -1,5 +1,5 @@
 {
-    "name": "ski/ski",
+    "name": "ski/ski-php",
     "description": "PHP Template Engine based on Alpine.js",
     "type": "library",
     "license": "MIT",
