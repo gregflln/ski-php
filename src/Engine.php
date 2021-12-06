@@ -68,7 +68,7 @@ namespace Core;
           if ($templateprocessed === false) {
               break;
           } elseif ($i == 99) {
-              echo $this->msg->alert('it\'s over 9000 ! Maybe you have cross-referencing or self-referencing components 🧩');
+              echo $this->msg->alert('it\'s over 9000 ! Maybe you have cross-referencing or self-referencing components ♾️🧩');
           } else {
               $template = $templateprocessed;
           }

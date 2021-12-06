@@ -102,7 +102,11 @@ class XTag
     $searchTag = '<ski-'.$tag.'>';
     $tagWithAttributes = '<ski-'.$tag.' '.$attributes.'>';
 
-    $template = str_replace($searchTag, $tagWithAttributes,$template, $count);
+    //$template = str_replace($searchTag, $tagWithAttributes,$template, $count);
+    $pos = strpos($template, $searchTag);
+      if ($pos !== false) {
+        $template = substr_replace($template, $tagWithAttributes, $pos, strlen($searchTag));
+    }
 
     return $template;
   }
@@ -199,8 +203,7 @@ class XTag
       put HTML attributes in $attributes
       */
       $attributes = $this->getAttributes($tagName);
-      var_dump($attributes);
-      echo '<br>';
+
       /*
       Delete all HTML attributes in return <x-tag>
       */

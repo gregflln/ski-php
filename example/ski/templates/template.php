@@ -5,6 +5,7 @@
     </x-comment>
   </div>
   <template x-for="post in posts">
-    <x-comment x-cloak>
+    <x-comment x-data="test">
+    </x-comment>
   </template>
 </x-app>
