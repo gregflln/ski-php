@@ -15,6 +15,7 @@ Mock your next <mark> data driven</mark> application <mark>quickly</mark> with <
 	</x-article>
 </x-app>
 ```
+
 Alpine JS is an quite <mark>simple</mark> and very <mark>intuitive</mark> Javascript framework  <mark>inspired by Vue JS</mark> which can be used <mark>directly in HTML</mark> from a CDN.
 >A, check out [Alpine JS Documentation](https://alpinejs.dev)
 ## ☑️ Installation
