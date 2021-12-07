@@ -14,10 +14,8 @@
         }
     ],
     "require-dev": {
-      "symfony/console": "^6.0"
     },
     "require": {
-      "symfony/console": "^6.0"
     },
 
     "scripts": {
