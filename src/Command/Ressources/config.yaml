@@ -1,9 +1,0 @@
-#Ski miscellaneous options
-options:
-  default_root_datas_name: datas
-  error_reporting: true
-  xss_protection: true
-  processing_max_iteration: 1000
-
-globals:
-#globals variables, accessible in component/views/template with $this->ski->$var
