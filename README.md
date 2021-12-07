@@ -25,13 +25,8 @@ The best way to start a Ski project is using composer
 ```console
 composer require ski/ski-php
 ```
-Then use the CLI for generate the base ski project file structure.
+Create the following project file structure.
 
-You can't choose a directory that already exist.
-```console
-php ski-cli ski:create <dirname>
-```
-If everything went fine, Ski Engine directory must look like this
 ```
 Directories structure:
 ----------------------
@@ -39,8 +34,13 @@ Directories structure:
 	|___ components/
 	|___ templates/
 	|___ head.php
-	|___ config.yarn
 ```
+In your php that instanciate ski, you need to specifies :
+```php
+<?php
+require 'vendor/autoload.php';
+use Core\Ski;
+ ```
 That's all folks.
 <b>Ski Engine is now ready to use !</b>
 
@@ -51,13 +51,14 @@ This is how to render a view
 
 ```php
 require 'vendor/autoload.php';
-
 Use Core\Ski;
-$ski = new Ski(__DIR__.'/path/to/ski/folder');
 
-$datas = [..]; // retrieve datas from whatever
+$ski = new Ski(__DIR__."/path/to/mySkiPath");
+// Without "/" at end
 
-$ski->template('articleTemplate'); //add template that you need
+$datas = [..]; // retrieve datas as JSON, Array or object
+
+$ski->template('templateName'); //add template that you need
 $ski->data($datas); //add datas to Alpine to front
 
 $ski->render(); //And just ⚡️ !
