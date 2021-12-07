@@ -1,8 +1,8 @@
 # 🏔️Ski Template Engine (PHP+AlpineJS)
 ## 📜Welcome to Documentation
-Ski Engine is a <mark>framework agnostic</mark> template engine that works with Alpine JS
+Ski Engine is a framework agnostic template engine that works with Alpine JS
 
-Mock your next <mark> data driven</mark> application <mark>quickly</mark> with <mark>components</mark>.
+Mock your next data driven application quickly with components.
 
 >For more information, check out [Alpine JS Documentation](https://alpinejs.dev)
 ```html
@@ -16,7 +16,7 @@ Mock your next <mark> data driven</mark> application <mark>quickly</mark> with <
 </x-app>
 ```
 
-Alpine JS is an quite <mark>simple</mark> and very <mark>intuitive</mark> Javascript framework  <mark>inspired by Vue JS</mark> which can be used <mark>directly in HTML</mark> from a CDN.
+Alpine JS is an quite simple and very intuitive Javascript framework  inspired by Vue JS which can be used directly in HTML from a CDN.
 >A, check out [Alpine JS Documentation](https://alpinejs.dev)
 ## ☑️ Installation
 
@@ -42,7 +42,7 @@ Directories structure:
 	|___ config.yarn
 ```
 That's all folks.
-<b>Ski Engine is now <mark>ready to use !</mark></b>
+<b>Ski Engine is now ready to use !</b>
 
 ## 🔨 Usage
 
@@ -62,7 +62,7 @@ $ski->data($datas); //add datas to Alpine to front
 
 $ski->render(); //And just ⚡️ !
 ```
-###  📑  <mark>`$ski->template()`</mark> Choose template
+###  📑  `$ski->template()` Choose template
 
 Define which template will be rendered.
 ```php
@@ -70,7 +70,7 @@ Define which template will be rendered.
 $ski->template('articleTemplate');
 // set template in /templates/articleTemplate.php
 ```
-### ☁️   <mark>`$ski->data()`</mark>Add some datas <sub><sup>`OPTIONAL`<sup></sub>
+### ☁️   `$ski->data()`Add some datas <sub><sup>`OPTIONAL`<sup></sub>
 Pass datas from your backend, DB, Models or whatever to the view.
 ```php
 //example :
@@ -96,7 +96,7 @@ Datas are passed to AlpineJS in `x-data` tag in `<body>` as Javascript Object `d
 </div>
 ```
 
-### ⚡️  <mark>`$ski->render()`</mark>Build view and send it
+### ⚡️  `$ski->render()`Build view and send it
 ```php
 //example :
 $ski->render();
@@ -106,7 +106,7 @@ The `->render()` method will send the view to the browser, this methods must be 
 Previous methods can be called in any order.
 
 ## 🏔️ Create better UI simpler with components
-> With Ski Engine, you <mark>create templates by using components</mark>.
+> With Ski Engine, you create templates by using components.
 >  Components are little piece of code that you can manipulate in differents way.
 > Components system are processed by PHP and components behavior are defined with AlpineJS directives.
 
