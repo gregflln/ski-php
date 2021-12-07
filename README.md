@@ -22,7 +22,7 @@ Alpine JS is an quite <mark>simple</mark> and very <mark>intuitive</mark> Javasc
 The best way to start a Ski project is using composer
 
 ```console
-composer require ski/ski
+composer require ski/ski-php
 ```
 Then use the CLI for generate the base ski project file structure.
 
