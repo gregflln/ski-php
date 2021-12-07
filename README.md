@@ -145,7 +145,7 @@ For call components, use the following syntax `<x-componentName>` represents our
 <!--/templates/blogPage.php-->
 <x-article>
 	<template x-for="post in datas.posts">
-		<x-comment/>
+		<x-comment>
 	<template>
 </x-article>
 ```
