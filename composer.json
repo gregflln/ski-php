@@ -22,7 +22,7 @@
 
     "scripts": {
         "post-install-cmd": [
-            "php -r \"copy('src/ski-cli', 'ski-cli');\""
+          "@php -r \"copy('src/ski-cli', 'ski-cli');\""
         ]
     }
 }
