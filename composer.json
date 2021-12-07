@@ -21,7 +21,7 @@
     },
 
     "scripts": {
-        "post-install-cmd": [
+        "post-create-project-cmd": [
           "@php -r \"copy('src/ski-cli', 'ski-cli');\""
         ]
     }
