@@ -19,39 +19,25 @@ class Ski extends Engine
         }
     }
 
-    public function template($template)
+    public function template($templateName)
     {
-        if (file_exists($this->skiroot . "/templates/" . $template . ".php")) {
-            $template = file_get_contents(
-                $this->skiroot . "/templates/" . $template . ".php"
-            );
-        }
-        if (empty($template)) {
+        if (file_exists($this->skiroot . "/templates/" . $templateName . ".php")) {
 
-            echo $this->msg->alert(
-                "Ski not found this template file in " .
-                    $this->skiroot .
-                    "/templates/" .
-                    $template .
-                    ".php"
-            );
+            $templateContent = file_get_contents($this->skiroot . "/templates/" . $templateName . ".php");
+            $this->template = $this->processTemplate($templateContent);
+
+        }else{
+          echo $this->msg->alert(
+              "Ski not found this template file in " .
+                  $this->skiroot .
+                  "/templates/" .
+                  $templateName .
+                  ".php"
+          );
+          return;
         }
-        $this->template = $this->processTemplate($template);
     }
-    /*
-    public function layout($layout)
-    {
-      if (!file_exists($this->skiroot.'/layouts/'.$layout.'.php')){
-        echo $this->msg->alert('[layout not found ]Layout name :'.$layout);
-        return;
-      }else{
-        $layout = file_get_contents($this->skiroot.'/layouts/'.$layout.'.php');
-        $layout = $this->processTemplate($layout);
-        //var_dump($layout);
-        $this->layout = $layout;
-      }
-    }
-    */
+
     public function render()
     {
         if ($this->startupVerifs()) {
